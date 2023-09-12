@@ -1,0 +1,63 @@
+.circle {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: yellow;
+  margin-inline: auto;
+}
+
+.grid {
+  width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 200px;
+  margin-inline: auto;
+  /* align-content: center;
+  justify-content: center; */
+}
+
+.container1 {
+  background-color: red;
+}
+.container2 {
+  background-color: black;
+}
+
+section {
+  min-height: 300px;
+}
+
+.grid-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.card {
+  position: relative;
+  background-color: black;
+}
+
+.words {
+  position: absolute;
+  inset: 0;
+  background-color: lime;
+  width: 0;
+  overflow: hidden;
+}
+
+.carded {
+  position: relative;
+  overflow: hidden;
+}
+
+.empty-span {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-color: purple;
+}
+
+.wrapper {
+  width: min(100% - 3rem, 1200px);
+  margin-inline: auto;
+}
