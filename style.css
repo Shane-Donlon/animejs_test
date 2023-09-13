@@ -121,8 +121,9 @@ fieldset {
   position: absolute;
   top: 0;
   bottom: 0;
+  left: 0;
   display: grid;
-  gap: calc(0.25em * 3);
+  gap: 1px;
   grid-auto-flow: column;
   align-items: center;
 }
@@ -130,4 +131,8 @@ fieldset {
 .form-wrapper1 {
   display: flex;
   gap: 0.125rem;
+}
+
+.name-input {
+  letter-spacing: 1px;
 }

@@ -128,7 +128,10 @@ submit.addEventListener("click", (e) => {
       return colors[i];
     },
   });
+
   tl.add({
+    marginLeft: "5px",
+    marginRight: "5px",
     scale: 3,
     delay: function (el, i, l) {
       return i * 100;
