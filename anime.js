@@ -141,6 +141,7 @@ submit.addEventListener("click", (e) => {
     delay: anime.stagger(100),
   });
   tl.add({
+    easing: "easeInOutCirc",
     rotate: anime.stagger([-500, 360]),
     delay: anime.stagger(150),
   });
