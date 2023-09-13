@@ -118,22 +118,22 @@ submit.addEventListener("click", (e) => {
   });
   nameInput.value = "";
   let spanChar = document.querySelectorAll(".span-char");
-
   var tl = anime.timeline({
     easing: "easeOutExpo",
-    duration: duration,
     targets: spanChar,
+    complete: function () {
+      let spanWrapper = document.querySelector(".span-wrapper");
+      spanWrapper.remove();
+      nameInput.value = randomInput;
+    },
     color: function (el, i, l) {
-      index = 0;
       colors = ["#4A192C", " #79553D", "#308446", "#20214F", " #999950"];
-
       while (i > colors.length) {
         i = i - (colors.length + 1);
       }
       return colors[i];
     },
   });
-
   tl.add({
     marginLeft: "5px",
     marginRight: "5px",
@@ -149,10 +149,4 @@ submit.addEventListener("click", (e) => {
       return i * 100;
     },
   });
-
-  let spanWrapper = document.querySelector(".span-wrapper");
-  setTimeout(() => {
-    spanWrapper.remove();
-    nameInput.value = randomInput;
-  }, duration * 3);
 });
