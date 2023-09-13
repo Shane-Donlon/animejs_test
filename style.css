@@ -61,3 +61,73 @@ section {
   width: min(100% - 3rem, 1200px);
   margin-inline: auto;
 }
+
+.carded1 {
+  overflow: hidden;
+  position: relative;
+}
+
+.empty-span1 {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-color: purple;
+  transition: transform 500ms ease-in;
+}
+
+.carded1:hover .empty-span1 {
+  transform: translateX(800px);
+}
+
+.card1 {
+  position: relative;
+  background-color: black;
+}
+
+.words1 {
+  position: absolute;
+  inset: 0;
+  background-color: lime;
+  transform: scaleX(0);
+  overflow: hidden;
+  transition: transform 500ms ease;
+  transform-origin: left;
+}
+
+.card1:hover .words1 {
+  transform: scaleX(1);
+}
+
+.form-grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 0.125rem;
+  padding: 3rem;
+}
+
+fieldset {
+  max-width: 500px;
+  border-radius: 10px;
+  margin-inline: auto;
+  overflow: hidden;
+}
+
+.testing-div {
+  position: relative;
+}
+
+.span-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: grid;
+  gap: calc(0.25em * 3);
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+.form-wrapper1 {
+  display: flex;
+  gap: 0.125rem;
+}
