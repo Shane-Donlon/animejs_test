@@ -135,18 +135,18 @@ submit.addEventListener("click", (e) => {
     },
   });
   tl.add({
-    marginLeft: "5px",
-    marginRight: "5px",
+    marginLeft: "7px",
+    marginRight: "7px",
     scale: 3,
-    delay: function (el, i, l) {
-      return i * 100;
-    },
+    delay: anime.stagger(100),
   });
-
   tl.add({
-    translateX: 500,
-    delay: function (el, i, l) {
-      return i * 100;
-    },
+    rotate: anime.stagger([-500, 360]),
+    delay: anime.stagger(150),
+  });
+  tl.add({
+    translateX: 250,
+    easing: "easeInOutBack",
+    delay: anime.stagger(100),
   });
 });
