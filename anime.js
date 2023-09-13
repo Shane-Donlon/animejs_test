@@ -124,7 +124,12 @@ submit.addEventListener("click", (e) => {
     duration: duration,
     targets: spanChar,
     color: function (el, i, l) {
+      index = 0;
       colors = ["#4A192C", " #79553D", "#308446", "#20214F", " #999950"];
+
+      while (i > colors.length) {
+        i = i - colors.length;
+      }
       return colors[i];
     },
   });
