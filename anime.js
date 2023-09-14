@@ -128,6 +128,7 @@ submit.addEventListener("click", (e) => {
   var tl = anime.timeline({
     easing: "easeOutExpo",
     targets: spanChar,
+
     complete: function () {
       let spanWrapper = document.querySelector(".span-wrapper");
       spanWrapper.remove();
@@ -145,11 +146,13 @@ submit.addEventListener("click", (e) => {
   tl.add({
     marginLeft: "0.4375em",
     marginRight: "0.4375em",
+    marginBottom: "50vh",
     scale: 3,
     delay: anime.stagger(100),
   });
   tl.add({
     translateX: 250,
+    rotate: "3turn",
     easing: "easeInOutBack",
     delay: anime.stagger(100),
   });
@@ -173,7 +176,7 @@ class User {
     newDialog.classList.add("form-status");
     let formStatus = document.querySelector(".form-status");
     let newBtn = document.createElement("button");
-    formStatus.textContent = `${this.name} has been logged in with email address of ${this.email}`;
+    formStatus.textContent = `${this.name} has been logged in`;
     formStatus.appendChild(newBtn);
     newBtn.classList.add("modal-btn");
     newBtn.textContent = "close";
