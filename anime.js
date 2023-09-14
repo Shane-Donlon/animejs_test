@@ -99,12 +99,19 @@ startBTn.addEventListener("click", () => {
 
 let testingDiv = document.querySelector(".testing-div");
 let nameInput = document.querySelector(".name-input");
+let emailInput = document.querySelector(".email-input");
 let randomInput;
+let user;
+let body = document.querySelector("body");
 let submit = document.querySelector(".submit");
 let spanWrapper = document.querySelector(".span-wrapper");
 let duration = 1000;
 submit.addEventListener("click", (e) => {
   randomInput = nameInput.value;
+  emailValue = emailInput.value;
+  body.classList.add("hidden");
+  user = new User(randomInput, emailValue);
+  user.save();
   e.preventDefault();
   let nameValue = nameInput.value.split("");
   let divContent = document.createElement("div");
@@ -125,6 +132,7 @@ submit.addEventListener("click", (e) => {
       let spanWrapper = document.querySelector(".span-wrapper");
       spanWrapper.remove();
       nameInput.value = randomInput;
+      user.login();
     },
     color: function (el, i, l) {
       colors = ["#4A192C", " #79553D", "#308446", "#20214F", " #999950"];
@@ -135,19 +143,50 @@ submit.addEventListener("click", (e) => {
     },
   });
   tl.add({
-    marginLeft: "7px",
-    marginRight: "7px",
+    marginLeft: "0.4375em",
+    marginRight: "0.4375em",
     scale: 3,
     delay: anime.stagger(100),
-  });
-  tl.add({
-    easing: "easeInOutCirc",
-    rotate: anime.stagger([-500, 360]),
-    delay: anime.stagger(150),
   });
   tl.add({
     translateX: 250,
     easing: "easeInOutBack",
     delay: anime.stagger(100),
   });
+});
+
+class User {
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+  }
+  save() {
+    localStorage.setItem("username", user.name);
+    localStorage.setItem("useremail", user.email);
+    console.log(localStorage.getItem("username"));
+    console.log(localStorage.getItem("useremail"));
+  }
+  login() {
+    let fieldSet = document.querySelector(".fieldSet");
+    let newDialog = document.createElement("dialog");
+    fieldSet.appendChild(newDialog);
+    newDialog.classList.add("form-status");
+    let formStatus = document.querySelector(".form-status");
+    let newBtn = document.createElement("button");
+    formStatus.textContent = `${this.name} has been logged in with email address of ${this.email}`;
+    formStatus.appendChild(newBtn);
+    newBtn.classList.add("modal-btn");
+    newBtn.textContent = "close";
+    formStatus.showModal();
+    newBtn.addEventListener("click", () => {
+      body.classList.remove("hidden");
+      formStatus.remove();
+      localStorage.clear();
+    });
+  }
+}
+
+let resetBtn = document.querySelector(".reset");
+resetBtn.addEventListener("click", () => {
+  console.clear();
 });

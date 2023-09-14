@@ -133,6 +133,18 @@ fieldset {
   gap: 0.125rem;
 }
 
-.name-input {
-  letter-spacing: 1px;
+.form-status {
+  --height: 500px;
+  height: var(--height);
+  width: var(--height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  margin-top: 3rem;
+}
+
+.hidden {
+  overflow: hidden;
 }
